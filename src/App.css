@@ -1,0 +1,15 @@
+.App {
+  padding: 0 30px;
+}
+
+header {
+  text-align: center;
+}
+
+.posts {
+  text-align: center;
+}
+
+.post-detail p {
+  font-size: 0.8em
+}
