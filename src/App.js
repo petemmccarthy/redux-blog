@@ -3,9 +3,10 @@ import './App.css';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Posts from './components/Posts'
-import User from './components/User'
+import UserPosts from './components/UserPosts'
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
@@ -13,13 +14,13 @@ class App extends Component {
         <header className="App-header">
           <h2>Redux Blog</h2>
         </header>
+
         <Router>
           <Switch>
             <Route exact path="/" component={Posts}/>
-            <Route pasth="/user:{id}" component={User}/>
+            <Route path="/users/:id" component={UserPosts}/>
           </Switch>
         </Router>
-
 
       </div>
     );

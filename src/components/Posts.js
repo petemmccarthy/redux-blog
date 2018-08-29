@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import PostDetail from './PostDetail'
 
 class Posts extends Component {
 
@@ -15,22 +15,18 @@ class Posts extends Component {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then( res => res.json() )
         .then( posts => this.setState({ posts: posts }) )
+          .catch(error => console.error('Error:', error))
   }
 
   render() {
     const { posts } = this.state
-    const postDetail = posts.map( post =>
-      <div className="post-detail" key={post.id}>
-        <h4>{post.title}</h4>
-        <p>{post.body}</p>
-        <Link to="/user{post.userId}"> <p>Author: {post.userId}</p></Link>
-      </div>
-    )
 
     return (
       <div>
         <h2 className="posts">Posts</h2>
-        <div className="post-detail">{postDetail}</div>
+        <div className="post-detail">
+          <PostDetail posts={posts} />
+        </div>
       </div>
     )
 
