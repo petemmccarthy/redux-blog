@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PostDetail from './PostDetail'
+import { Link } from 'react-router-dom'
 
 class UserPosts extends Component  {
 
@@ -25,6 +26,7 @@ class UserPosts extends Component  {
     return (
       <div>
         <h2 className="posts">User Posts</h2>
+        <Link to="/" >Back to all posts</Link>
         <div className="post-detail">
           <PostDetail posts={userPosts} />
         </div>

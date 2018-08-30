@@ -2,28 +2,34 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Posts from './components/Posts'
+import PostsContainer from './components/PostsContainer'
 import UserPosts from './components/UserPosts'
+
+import store from './store'
+import { Provider } from 'react-redux'
 
 class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <Provider store={store}>
+        <div className="App">
 
-        <header className="App-header">
-          <h2>Redux Blog</h2>
-        </header>
+          <header className="App-header">
+            <h2>Redux Blog</h2>
+          </header>
 
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Posts}/>
-            <Route path="/users/:id" component={UserPosts}/>
-          </Switch>
-        </Router>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={PostsContainer}/>
+              <Route path="/users/:id" component={UserPosts}/>
+            </Switch>
+          </Router>
 
-      </div>
-    );
+        </div>
+      </Provider>
+    )
+
   }
 }
 
